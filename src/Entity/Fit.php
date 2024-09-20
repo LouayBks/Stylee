@@ -17,7 +17,7 @@ class Fit
     #[ORM\Column(length: 255)]
     private ?string $style = null;
 
-    #[ORM\Column(type: Types::json)]
+    #[ORM\Column(type: Types::ARRAY)]
     private array $colors = [];
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
