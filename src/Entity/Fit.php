@@ -16,10 +16,20 @@ class Fit
 
     #[ORM\Column(length: 255)]
     private ?string $style = null;
-
+    
+    /*
     #[ORM\Column(length: 255)]
     private ?string $colors = null;
-
+    **/
+    
+    /*  DEPRECATED ARRAY
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $colors = [];
+    **/
+    
+    #[ORM\Column(type: Types::JSON)]
+    private array $colors = [];
+    
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created = null;
 
@@ -43,12 +53,12 @@ class Fit
         return $this;
     }
 
-    public function getColors(): ?string
+    public function getColors(): ?array
     {
         return $this->colors;
     }
 
-    public function setColors(string $colors): static
+    public function setColors(array $colors): static
     {
         $this->colors = $colors;
 
