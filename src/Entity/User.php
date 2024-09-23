@@ -16,7 +16,7 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $last_name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $first_name = null;
@@ -27,25 +27,27 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $pwd = null;
 
+    /*
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $avatar;
-
+    **/
+    
     #[ORM\Column(length: 255)]
-    private ?string $nationality = null;
+    private ?string $nation = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getLastName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setLastName(string $last_name): static
     {
-        $this->name = $name;
+        $this->last_name = $last_name;
 
         return $this;
     }
@@ -85,28 +87,30 @@ class User
 
         return $this;
     }
-
-    public function getAvatar()
+    
+    public function getNation(): ?string
     {
-        return $this->avatar;
+        return $this->nation;
     }
 
-    public function setAvatar($avatar): static
+    public function setNation(string $nation): static
     {
-        $this->avatar = $avatar;
+        $this->nation = $nation;
 
         return $this;
     }
-
-    public function getNationality(): ?string
-    {
-        return $this->nationality;
-    }
-
-    public function setNationality(string $nationality): static
-    {
-        $this->nationality = $nationality;
-
-        return $this;
-    }
+    
+    /*
+     public function getAvatar()
+     {
+     return $this->avatar;
+     }
+     
+     public function setAvatar($avatar): static
+     {
+     $this->avatar = $avatar;
+     
+     return $this;
+     }
+     **/
 }

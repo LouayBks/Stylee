@@ -36,6 +36,10 @@ class Fit
     #[ORM\Column]
     private ?int $price = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Fits')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Inventory $inventory = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +89,18 @@ class Fit
     public function setPrice(int $price): static
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getInventory(): ?Inventory
+    {
+        return $this->inventory;
+    }
+
+    public function setInventory(?Inventory $inventory): static
+    {
+        $this->inventory = $inventory;
 
         return $this;
     }
